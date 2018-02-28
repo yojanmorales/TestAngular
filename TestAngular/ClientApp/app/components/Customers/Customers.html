@@ -1,0 +1,73 @@
+﻿<h1>Customers</h1>
+
+
+{{title}}
+<p *ngIf="!customerslist"><em>Loading...</em></p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="form_bg">
+            <form #customerForm="ngForm" (ngSubmit)="save()" novalidate>
+                <h2 class="text-center">Create Customer</h2>
+                <br />
+                <div class="form-group row">
+                    <label class=" control-label col-md-12">Name</label>
+                    <div class="col-md-4">
+                        <input class="form-control" #name="ngModel" type="text" name="name" [(ngModel)]="objCustomer.name" required>
+                    </div>
+                    <span class="text-danger" *ngIf="!name.valid && name.touched">
+                        Name is required.
+                    </span>
+                </div>
+
+                <div class="form-group row">
+                    <label class=" control-label col-md-12" for="Name">Identification</label>
+                    <div class="col-md-4">
+                        <input class="form-control" #identification="ngModel" type="text" name="identification" required [(ngModel)]="objCustomer.identification">
+                    </div>
+                    <span class="text-danger" *ngIf="!identification.valid && identification.touched">
+                        Identification is required.
+                    </span>
+                </div>
+
+
+
+
+                <div class="form-group">
+                </div>
+                <br />
+                <div class="align-center">
+                    <button type="submit" class="btn btn-default" [disabled]="!customerForm.form.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class='table' *ngIf="customerslist">
+                <thead>
+                    <tr>
+                        <th>CustomerId</th>
+                        <th>Name</th>
+                        <th>Identification</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customerslist">
+                        <td>{{ customer.customerId}}</td>
+                        <td>{{ customer.name}}</td>
+                        <td>{{ customer.identification}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+
