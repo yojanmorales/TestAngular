@@ -16,7 +16,7 @@ namespace CustomersApi.Controllers
     [EnableCors("AllowCors")]
     public class CustomersController : Controller
     {
-         //INTERFAZ
+         //INTERFAZ 222
         private readonly ICustomerServices _horseService;
 
 
@@ -27,7 +27,7 @@ namespace CustomersApi.Controllers
         }
 
        // [ServiceFilter(typeof(DigestAuthenticationFilterAttribute))]
-        // GET: api/Customers
+        // GET: api/Customers asdasd
         [HttpGet]
         public IEnumerable<Customer> GetCustomers()
         {
