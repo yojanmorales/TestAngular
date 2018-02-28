@@ -17,5 +17,5 @@ export class AppModule {
 }
 
 export function getBaseUrl() {
-    return 'http://localhost:58207/';
+    return 'http://localhost:55858/';
 }

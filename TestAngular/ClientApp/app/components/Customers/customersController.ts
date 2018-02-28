@@ -24,10 +24,15 @@ export class CustomerDataComponent {
 
 
     getCustomers() {
-
+        debugger;
         this._testServices.getCustomers().subscribe(
+
             data => this.customerslist = data as Customers[]
+            
+            
         )
+
+        debugger;
     }
 
     initializeForm() {

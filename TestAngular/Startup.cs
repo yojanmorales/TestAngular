@@ -26,9 +26,9 @@ namespace TestAngular
         {
             services.AddMvc();
 
-            var connection = Configuration.GetConnectionString("AuthentConnection");
+            //var connection = Configuration.GetConnectionString("AuthentConnection");
 
-            services.AddDbContext<TestAngularjContext>(options => options.UseSqlServer(connection));
+            //services.AddDbContext<TestAngularjContext>(options => options.UseSqlServer(connection));
 
 
 

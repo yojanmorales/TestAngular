@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-@Injectable() 
+@Injectable()
 export class TestServices {
     myAppUrl: string = "";
     constructor(private _http: Http, @Inject('BASE_URL') baseUrl: string) {
@@ -27,7 +27,11 @@ export class TestServices {
 
     saveCustomer(customer) {
         return this._http.post(this.myAppUrl + 'api/Customers', customer)
-            .map((response: Response) => response.json())
+            .map((response: Response) =>
+
+                response.json()
+
+            )
             .catch(this.errorHandler)
     }
 
@@ -44,6 +48,7 @@ export class TestServices {
     }
 
     errorHandler(error: Response) {
+        debugger;
         console.log(error);
         return Observable.throw(error);
     }
