@@ -40,6 +40,10 @@ namespace CustomersApi
 
             services.AddTransient<ICustomerServices, CustomerServices>();
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+              .AddEntityFrameworkStores<ModelAngularContext>()
+              .AddDefaultTokenProviders();
+
             services.AddCors(
            options => options.AddPolicy("AllowCors",
            builder =>
