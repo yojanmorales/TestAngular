@@ -14,20 +14,34 @@ namespace APINET.Tests.Controllers
     {
 
         private Mock<ICustomerServices> cityDataMock = null;
-        private CustomerServices cityBussiness = null;
-        Mock<IRepository<Customer>> _mockUnitWork;
+        private FachadaCustomers cityBussiness = null;
+
 
         [TestInitialize]
         public void InitializeTest()
         {
             this.cityDataMock = new Mock<ICustomerServices>();
-            _mockUnitWork = new Mock<IRepository<Customer>>();
-            this.cityBussiness = new CustomerServices(_mockUnitWork.Object);
+
+            this.cityBussiness = new FachadaCustomers(this.cityDataMock.Object);
         }
         [TestMethod]
         public void TestMethod1()
         {
+            List<Customer> listcustomers = new List<Customer>()
+                {
+                 new Customer()
+                 {
+                      CustomerId = 0,
+                       Identification = "12",
+                        Name = "Yojan"
+                 }
+            };
 
+
+            this.cityDataMock.Setup(it => it.GetCustomers()).Returns(listcustomers);
+            var customersActual = this.cityBussiness.GetCustomers();
+
+            Assert.AreEqual(1, customersActual.Count);
         }
     }
 }

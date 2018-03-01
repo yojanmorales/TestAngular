@@ -14,18 +14,18 @@ namespace APINET.Controllers
     {
 
 
-        ICustomerServices _repository;
+        readonly FachadaCustomers _repository;
 
-        public CustomersController(ICustomerServices repository)
+        public CustomersController()
 
         {
-            _repository = repository;
+            _repository = new FachadaCustomers();
         }
 
 
 
 
-        
+
         // GET api/Customers
         [HttpGet]
         public IEnumerable<Customer> GetCustomers()

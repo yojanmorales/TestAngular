@@ -12,10 +12,10 @@ namespace ModeloNet.Repository
         protected readonly ModeloNetContext Context;
         protected DbSet<T> DbSet;
 
-        public Repository(ModeloNetContext context)
+        public Repository()
         {
-            Context = context;
-            DbSet = context.Set<T>();
+            Context = new ModeloNetContext();
+            DbSet = Context.Set<T>();
         }
 
         public void Add(T entity)

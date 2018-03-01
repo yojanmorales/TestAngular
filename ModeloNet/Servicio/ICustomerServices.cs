@@ -9,7 +9,7 @@ namespace ModeloNet.Servicio
     public interface ICustomerServices
     {
 
-        IEnumerable<Customer> GetCustomers();
+        List<Customer> GetCustomers();
         void InsertCustomer(Customer customer);
 
       

@@ -9,28 +9,28 @@ namespace ModeloNet.Servicio
 {
     public class CustomerServices : ICustomerServices
     {
-       
-
-        private readonly IRepository<Customer> _customerRepository;
 
 
+        private readonly CustomerDao _customerDao;
 
-        public CustomerServices(IRepository<Customer> horseRepository)
+
+
+        public CustomerServices()
         {
-            _customerRepository = horseRepository;
+            _customerDao = new CustomerDao();
         }
 
-        public IEnumerable<Customer> GetCustomers()
+        public List<Customer> GetCustomers()
         {
-            var horses = _customerRepository.GetAll();
-            return horses;
+            var customerslist = _customerDao.GetCustomers();
+            return customerslist;
 
         }
 
 
         public void InsertCustomer(Customer customer)
         {
-            _customerRepository.Add(customer);
+            // _customerRepository.Add(customer);
         }
     }
 }
